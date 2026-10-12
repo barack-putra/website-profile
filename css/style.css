@@ -1,0 +1,450 @@
+/* =========================================================
+   style.css
+   Tema terang bergaya BMW Indonesia, dibangun di atas Bootstrap 5.
+   Semua token desain (warna, radius, spasi) dipusatkan di :root
+   supaya empat halaman tetap konsisten.
+   ========================================================= */
+
+:root{
+  --accent:      #0653B4;
+  --accent-dark: #03296B;
+  --ink:           #16171A;
+  --ink-soft:      rgba(22,23,26,.65);
+  --ink-faint:     rgba(22,23,26,.45);
+  --smoke:         #F4F5F7;
+  --line:          #E3E5E8;
+  --radius-lg:     18px;
+  --radius-md:     12px;
+  --container-max: 1180px;
+}
+
+/* ---------- Dasar ---------- */
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  background:#ffffff;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3,h4{
+  font-family:"Poppins","Inter",sans-serif;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+  margin-bottom:0;
+}
+
+a{ color:inherit; text-decoration:none; }
+a:hover{ color:inherit; }
+
+::selection{ background:var(--accent); color:#fff; }
+
+.container-custom{
+  max-width:var(--container-max);
+  margin-inline:auto;
+  padding-inline:1.25rem;
+}
+@media (min-width:992px){
+  .container-custom{ padding-inline:2.5rem; }
+}
+
+.text-blue{ color:var(--accent) !important; }
+.bg-smoke{ background:var(--smoke) !important; }
+.section-py{ padding-block:4.5rem; }
+@media (max-width:767.98px){ .section-py{ padding-block:3rem; } }
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+.site-navbar{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  padding-block:.85rem;
+}
+
+.site-brand{
+  display:flex; align-items:center; gap:.7rem;
+  font-weight:700; font-size:.92rem;
+  letter-spacing:.18em;
+  color:var(--ink);
+}
+.brand-badge{
+  width:40px; height:40px; border-radius:50%;
+  background:var(--accent); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:.8rem; font-family:"Poppins",sans-serif;
+  flex:none;
+}
+
+.site-navbar .nav-link{
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.08em;
+  color:var(--ink-soft);
+  padding:.5rem 0 !important;
+  margin-inline:.9rem;
+  position:relative;
+  border-bottom:2px solid transparent;
+  transition:color .2s ease, border-color .2s ease;
+}
+.site-navbar .nav-link:hover{ color:var(--ink); }
+.site-navbar .nav-link.active{
+  color:var(--accent);
+  border-bottom-color:var(--accent);
+}
+
+.btn-dark{
+  background:var(--ink);
+  color:#fff;
+  border:none;
+  border-radius:99px;
+  padding:.65rem 1.6rem;
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+.btn-dark:hover{ background:var(--accent); color:#fff; }
+
+.btn-outline{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid rgba(22,23,26,.25);
+  border-radius:99px;
+  padding:.65rem 1.6rem;
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  transition:all .2s ease;
+}
+.btn-outline:hover{
+  background:var(--ink); color:#fff; border-color:var(--ink);
+}
+
+.btn-accent{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  border-radius:99px;
+  padding:.65rem 1.6rem;
+  font-size:.82rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  transition:background .2s ease;
+}
+.btn-accent:hover{ background:var(--accent-dark); color:#fff; }
+
+.mobile-menu .nav-link{
+  font-weight:600; font-size:.95rem;
+  padding:.85rem 1rem !important;
+  border-radius:var(--radius-md);
+  color:var(--ink);
+}
+.mobile-menu .nav-link.active{
+  background:var(--smoke); color:var(--accent);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero-section{
+  background:linear-gradient(180deg,var(--smoke) 0%, #ffffff 100%);
+  border-bottom:1px solid var(--line);
+}
+
+.hero-photo-wrap{ position:relative; }
+.hero-photo-wrap::before{
+  content:"";
+  position:absolute; top:-16px; left:-16px;
+  width:130px; height:130px;
+  background:rgba(6,83,180,.08);
+  border-radius:26px;
+  z-index:0;
+}
+.hero-photo{
+  position:relative; z-index:1;
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:var(--radius-lg);
+  box-shadow:0 25px 50px -20px rgba(6,83,180,.35);
+}
+.hero-quote{
+  position:relative; z-index:1;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-md);
+  padding:1.1rem 1.3rem;
+  margin:-2.5rem 1.5rem 0;
+  box-shadow:0 10px 30px -18px rgba(0,0,0,.18);
+}
+
+.stat-block{ border-top:1px solid var(--line); padding-top:1.5rem; }
+.stat-block dt{ font-size:.72rem; color:var(--ink-faint); }
+.stat-block dd{ font-size:1.5rem; font-weight:700; margin-bottom:0; font-family:"Poppins",sans-serif; }
+
+/* =========================================================
+   KARTU umum (BMW pakai kartu tipis bergaris, bukan shadow tebal)
+   ========================================================= */
+.info-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius-lg);
+  transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.info-card:hover{
+  border-color:rgba(6,83,180,.35);
+  box-shadow:0 18px 40px -24px rgba(6,83,180,.45);
+}
+
+.icon-badge{
+  width:48px; height:48px;
+  border-radius:14px;
+  background:rgba(6,83,180,.1);
+  color:var(--accent);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.15rem;
+}
+.icon-badge.dark{ background:rgba(22,23,26,.08); color:var(--ink); }
+
+.badge-accent{
+  display:inline-block;
+  background:var(--accent);
+  color:#fff;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.05em;
+  padding:.32rem .75rem;
+  border-radius:99px;
+}
+.badge-dark{
+  display:inline-block;
+  background:var(--ink);
+  color:#fff;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.05em;
+  padding:.32rem .75rem;
+  border-radius:99px;
+}
+.badge-outline{
+  display:inline-block;
+  border:1px solid var(--line);
+  color:var(--ink-soft);
+  font-size:.68rem;
+  font-weight:600;
+  padding:.32rem .75rem;
+  border-radius:99px;
+}
+
+.chip{
+  display:inline-block;
+  background:var(--smoke);
+  border:1px solid var(--line);
+  border-radius:99px;
+  padding:.35rem .85rem;
+  font-size:.78rem;
+  color:var(--ink-soft);
+}
+
+/* =========================================================
+   TIMELINE (halaman pendidikan)
+   ========================================================= */
+.timeline-list{
+  position:relative;
+  list-style:none;
+  padding-left:2.4rem;
+  margin:0;
+  border-left:1px solid var(--line);
+}
+@media (min-width:576px){ .timeline-list{ padding-left:3.2rem; } }
+
+.timeline-list > li{ position:relative; padding-bottom:2.75rem; }
+.timeline-list > li:last-child{ padding-bottom:0; }
+
+.timeline-dot{
+  position:absolute;
+  left:calc(-2.4rem - 10px);
+  top:.35rem;
+  width:20px; height:20px;
+  border-radius:50%;
+  background:#fff;
+  border:2px solid var(--accent);
+  display:flex; align-items:center; justify-content:center;
+}
+@media (min-width:576px){ .timeline-dot{ left:calc(-3.2rem - 10px); } }
+.timeline-dot span{
+  width:8px; height:8px; border-radius:50%; background:var(--accent);
+}
+.timeline-dot.is-muted{ border-color:rgba(22,23,26,.25); }
+.timeline-dot.is-muted span{ background:rgba(22,23,26,.4); }
+
+/* =========================================================
+   GALERI DOKUMENTASI (halaman prestasi)
+   ========================================================= */
+.photo-card{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  border-radius:var(--radius-md);
+  background:var(--smoke);
+}
+.photo-card img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+.photo-card:hover img, .photo-card:focus-visible img{ transform:scale(1.06); }
+.photo-card figcaption{
+  position:absolute; inset:auto 0 0 0;
+  padding:.9rem .9rem .75rem;
+  background:linear-gradient(to top, rgba(22,23,26,.88), rgba(22,23,26,0));
+  color:#fff;
+  font-size:.75rem;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .3s ease, transform .3s ease;
+}
+.photo-card:hover figcaption, .photo-card:focus-within figcaption{
+  opacity:1; transform:translateY(0);
+}
+
+/* =========================================================
+   CTA 
+   ========================================================= */
+.cta-dark{ background:var(--ink); color:#fff; }
+.cta-dark .btn-accent:hover{ background:#fff; color:var(--ink); }
+.cta-dark .btn-outline{
+  border-color:rgba(255,255,255,.28); color:#fff;
+}
+.cta-dark .btn-outline:hover{
+  background:rgba(255,255,255,.12); color:#fff; border-color:rgba(255,255,255,.28);
+}
+
+/* =========================================================
+   KONTAK
+   ========================================================= */
+.contact-tile{
+  display:flex; flex-direction:column; align-items:center; gap:.6rem;
+  padding:1.6rem 1rem;
+  border-radius:var(--radius-md);
+  border:1px solid var(--line);
+  background:#fff;
+  font-weight:600;
+  font-size:.9rem;
+  color:var(--ink);
+  transition:border-color .25s ease, box-shadow .25s ease, transform .2s ease;
+}
+.contact-tile i{ font-size:1.5rem; }
+.contact-tile:hover{
+  transform:translateY(-3px);
+  border-color:rgba(6,83,180,.4);
+  box-shadow:0 16px 34px -22px rgba(6,83,180,.5);
+  color:var(--accent);
+}
+.contact-tile.whatsapp i{ color:#1DA851; }
+.contact-tile.email i{ color:var(--accent); }
+.contact-tile.github i{ color:var(--ink); }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer{
+  background:#fff;
+  border-top:1px solid var(--line);
+}
+.site-footer h6{
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  color:var(--ink-faint);
+}
+.site-footer ul{ list-style:none; padding:0; margin:0; }
+.site-footer ul li{ margin-bottom:.55rem; }
+.site-footer a{
+  color:var(--ink-soft);
+  font-size:.88rem;
+  transition:color .2s ease;
+}
+.site-footer a:hover{ color:var(--accent); }
+.footer-bottom{
+  border-top:1px solid var(--line);
+  font-size:.75rem;
+  color:var(--ink-faint);
+}
+
+/* =========================================================
+   SKILL BAR (diagram batang horizontal — bagian Keahlian)
+   ========================================================= */
+.skill-group + .skill-group{ margin-top:2rem; }
+
+.skill-group h4{
+  font-size:.72rem;
+  font-weight:600;
+  letter-spacing:.12em;
+  color:var(--ink-faint);
+  text-transform:uppercase;
+  margin-bottom:1.1rem;
+}
+
+.skill-item{ margin-bottom:1.1rem; }
+.skill-item:last-child{ margin-bottom:0; }
+
+.skill-item-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  margin-bottom:.4rem;
+}
+.skill-item-head .skill-name{
+  font-size:.88rem;
+  font-weight:600;
+  color:var(--ink);
+}
+.skill-item-head .skill-pct{
+  font-size:.78rem;
+  font-weight:600;
+  color:var(--accent);
+}
+
+.skill-bar-track{
+  height:8px;
+  border-radius:99px;
+  background:var(--smoke);
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+.skill-bar-fill{
+  height:100%;
+  border-radius:99px;
+  background:linear-gradient(90deg, var(--accent), var(--accent-dark));
+  width:0%;
+  transition:width 1s ease;
+}
+
+/* =========================================================
+   GALERI FOTOGRAFI (halaman gallery.html)
+   ========================================================= */
+.gallery-hero{ background:var(--ink); }
+.gallery-hero .eyebrow{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.14); color:rgba(255,255,255,.7); }
+.gallery-hero h1{ color:#fff; }
+.gallery-hero p{ color:rgba(255,255,255,.6); }
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:.85rem;
+}
+@media (min-width:576px){ .gallery-grid{ grid-template-columns:repeat(3,1fr); gap:1rem; } }
+@media (min-width:992px){ .gallery-grid{ grid-template-columns:repeat(4,1fr); } }
+
+.gallery-item .photo-card{ aspect-ratio:3/4; background:#0b0c0e; }
+.gallery-item .photo-card img{ object-fit:cover; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; animation:none !important; }
+}
